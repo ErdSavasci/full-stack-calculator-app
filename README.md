@@ -10,3 +10,6 @@ Copyright
 Tech Stack:
 1. ReactJS (TS & Vite)
 2. GoLang (Multi-module & Workspace)
+
+### Screenshot
+![Screenshot](extras/screenshot.png)

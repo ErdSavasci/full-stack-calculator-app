@@ -50,6 +50,11 @@ function App() {
       setDisplayValue(num);
       setWaitingForNewValue(false);
     } else {
+      const cleanLength = displayValue.replace(/[-.]/g, '').length;
+      if (cleanLength >= 7) {
+        return; // Silently reject the clicks
+      }
+
       setDisplayValue(prev => prev === '0' ? num : prev + num);
     }
   };
@@ -81,7 +86,7 @@ function App() {
       }
 
       const calcData: CalculateResponse = await calcRes.json();
-      const finalResult = calcData.result;
+      const finalResult = formatHugeResult(calcData.result);
 
       const res = await fetch(`${API_BASE}/history`, {
         method: 'POST',
@@ -149,7 +154,7 @@ function App() {
       setLastSavedSignature(signatureToSave);
 
       const data: CalculateResponse = await res.json();
-      const finalResult = data.result;
+      const finalResult = formatHugeResult(data.result);
 
       // Formatting the equation for the top display
       const eqStr = action === 'squareroot' ? `√${displayValue} =` : `${displayValue}% =`;
@@ -202,20 +207,6 @@ function App() {
     }
   };
 
-  // Helper to map UI symbols to Go backend routes
-  const getSymbol = (op: string) => {
-    switch (op) {
-      case 'add': return '+';
-      case 'subtract': return '-';
-      case 'multiply': return '×';
-      case 'divide': return '/';
-      case 'exponential': return '^';
-      case 'squareroot': return '√';
-      case 'percentage': return '%';
-      default: return '';
-    }
-  };
-
   const handleCalculate = async () => {
     if (!previousValue || !operator) return;
 
@@ -243,7 +234,7 @@ function App() {
       setLastSavedSignature(signatureToSave);
 
       const calcData: CalculateResponse = await calcRes.json();
-      const finalResult = calcData.result;
+      const finalResult = formatHugeResult(calcData.result);
 
       // Update the UI
       setDisplayValue(finalResult);
@@ -291,6 +282,31 @@ function App() {
 
   const toggleSign = () => {
     setDisplayValue(prev => prev.startsWith('-') ? (prev.length > 1 ? prev.substring(1) : '0') : (prev === '0' ? '-' : '-' + prev));
+  };
+
+  // Helper to map UI symbols to Go backend routes
+  const getSymbol = (op: string) => {
+    switch (op) {
+      case 'add': return '+';
+      case 'subtract': return '-';
+      case 'multiply': return '×';
+      case 'divide': return '/';
+      case 'exponential': return '^';
+      case 'squareroot': return '√';
+      case 'percentage': return '%';
+      default: return '';
+    }
+  };
+
+  const formatHugeResult = (resultString: string) => {
+    const num = parseFloat(resultString);
+
+    // If the number is huge
+    if (resultString.length > 7) {
+      return num.toExponential(3); // Converts to e+
+    }
+
+    return resultString;
   };
 
   const currentSignature = `${previousValue}-${operator}-${displayValue}`;
