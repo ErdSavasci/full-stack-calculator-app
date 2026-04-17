@@ -160,3 +160,7 @@ button:hover {
 #history-clear {
   margin-left: 30px;
 }
+
+.history-footer-text {
+  font-size: 0.8rem;
+}
