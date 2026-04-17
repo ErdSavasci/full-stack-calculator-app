@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+services:
+  addition:
+    port: 8081
+  subtraction:
+    port: 8082
+  multiplication:
+    port: 8083
+  division:
+    port: 8084
+  exponentiation:
+    port: 8085
+  squareroot:
+    port: 8086
+  percentage:
+    port: 8087
+  history:
+    port: 8088

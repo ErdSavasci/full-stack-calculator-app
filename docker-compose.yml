@@ -1,0 +1,71 @@
+# Version is commented out since it is obsolete
+# version: '3.8'
+
+services:
+  # Frontend
+  calculator-frontend:
+    build:
+      context: ./calculator-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_CALCULATOR_BACKEND_URL=http://localhost:8080/api
+    depends_on:
+      - calculator-backend
+
+  # Backend
+  calculator-backend:
+    build:
+      context: ./calculator-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - addition-service
+      - subtraction-service
+      - multiplication-service
+      - division-service
+      - exponentiation-service
+      - squareroot-service
+      - percentage-service
+      - history-service
+
+  # Microservices
+  addition-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/addition/Dockerfile
+
+  subtraction-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/subtraction/Dockerfile
+
+  multiplication-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/multiplication/Dockerfile
+
+  division-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/division/Dockerfile
+
+  exponentiation-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/exponentiation/Dockerfile
+
+  squareroot-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/squareroot/Dockerfile
+
+  percentage-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/percentage/Dockerfile
+
+  history-service:
+    build:
+      context: ./calculator-backend
+      dockerfile: ./services/history/Dockerfile

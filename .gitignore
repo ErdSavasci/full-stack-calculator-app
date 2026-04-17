@@ -1,0 +1,19 @@
+# Root Level
+
+# OS Files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# IDE / Editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# Root-level environment (for docker-compose, etc.)
+.env

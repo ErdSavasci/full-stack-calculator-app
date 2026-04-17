@@ -1,0 +1,22 @@
+# Backend Level
+
+# Compiled object files and binaries
+*.o
+*.a
+*.so
+*.exe
+*.dll
+
+# The compiled binary output
+bin/
+__debug_bin
+main
+
+# Test coverage profiles
+*.out
+coverage.html
+
+# Env files (e.g., Viper config local overrides)
+.env
+config.local.yaml
+config.local.json

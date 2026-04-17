@@ -1,0 +1,29 @@
+# Go junk
+bin/
+obj/
+*.exe
+vendor/
+# ADD THESE:
+**/*.out          # Ignores coverage.out files from your 'make coverage'
+**/*.test         # Ignores any compiled test binaries
+**/pkg/           # Ignores local build caches
+
+# Node junk
+**/node_modules/
+**/dist/
+**/build/
+# ADD THESE:
+**/.env* # Prevents leaking your local secrets into the image
+**/npm-debug.log*
+
+# Docker/System junk
+.git/
+.gitignore
+.dockerignore
+docker-compose.yml
+.DS_Store
+# ADD THESE:
+README.md         # No need for documentation inside the binary
+LICENSE
+.idea/            # Ignores GoLand / JetBrains metadata
+.vscode/          # Ignores VS Code metadata

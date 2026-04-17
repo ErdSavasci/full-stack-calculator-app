@@ -1,0 +1,67 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* --bg-color-warning: #f36b16; */
+  --bg-color-warning: #1b7cfc;
+  --bg-color-shadow: #000000;
+
+  /* Universal */
+  --sans: 'Inter', sans-serif;
+  --heading: 'Inter', sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font-size: 1.125rem;
+  font-family: var(--sans), serif;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#information-container {
+  padding: 15px;
+  height: 18vh;
+  color: #ffffff;
+  font-size: 0.9rem;
+  background: #212126 repeating-linear-gradient(-45deg,
+  color-mix(in srgb, transparent, var(--bg-color-warning, #F36B16) 7%),
+  color-mix(in srgb, transparent, var(--bg-color-warning, #F36B16) 7%) 6px,
+  color-mix(in srgb, transparent, var(--bg-color-warning, #F36B16) 11%) 6px,
+  color-mix(in srgb, transparent, var(--bg-color-warning, #F36B16) 11%) 12px);
+  box-shadow: 0 5px 15px 0
+  color-mix(in srgb, transparent, var(--bg-color-shadow, #000000) 8%), 0 15px 35px -5px
+  color-mix(in srgb, transparent, var(--bg-color-shadow, #000000) 20%), 0 0 0 1px
+  color-mix(in srgb, transparent, white 7%);
+}
+
+#information-container span {
+  display: block;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#information-container #first {
+  margin-bottom: 10px;
+}

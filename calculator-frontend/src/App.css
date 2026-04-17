@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  background-color: #a3a3a3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 82vh;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 700px;
+}
+
+/* --- Left Side: Calculator --- */
+.calc-section {
+  flex: 1.5;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.display {
+  text-align: left;
+  position: relative;
+}
+
+.display-equation {
+  color: #888;
+  font-size: 1.2rem;
+  min-height: 1.5rem;
+  margin-bottom: 5px;
+  max-height: 1.5rem;
+  height: 1.5rem;
+}
+
+.display-result {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #000;
+  margin: 0 auto;
+}
+
+.backspace-btn {
+  position: absolute;
+  right: 0;
+  top: 47px;
+  background: #f0f4f8;
+  border: none;
+  color: #3b82f6;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  background-color: #f3f4f6;
+  font-size: 1.5rem;
+  border-radius: 50%; /* Makes them circular */
+  aspect-ratio: 1; /* Keeps them perfectly square/round */
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+.btn-blue {
+  background-color: #1b7cfc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7pt;
+}
+
+.btn-tall {
+  grid-row: span 3;
+  aspect-ratio: auto; /* Override to allow pill shape */
+  border-radius: 40px; /* Pill shape */
+}
+
+/* --- Right Side: History --- */
+.history-section {
+  flex: 1;
+  background: #fafafa;
+  border-left: 1px solid #eaeaea;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.history-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.history-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.history-calc {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-equation {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.history-result {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.history-copy {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#history-clear {
+  margin-left: 30px;
+}

@@ -1,0 +1,33 @@
+# Frontend Level
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Vite & Rollup caches
+.vite/
+*.local
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Test Coverage
+coverage/
+
+# ESLint / Prettier caches
+.eslintcache
+.prettiercache
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
