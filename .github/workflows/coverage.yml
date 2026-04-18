@@ -1,0 +1,50 @@
+name: Go Test Coverage Badge
+
+# This action runs every time when we push to the main branch
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  update-coverage:
+    runs-on: ubuntu-latest
+
+    # The action permission to write commits back to our repo
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Same as our project Go version
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      # Main steps to generate coverage.out
+      - name: Run Tests and Generate Profile
+        working-directory: calculator-backend
+        run: |
+          # 1. Clean test cache
+          go clean -testcache
+          # 2. Run tests and output to coverage.out
+          go list -f '{{.Dir}}/...' -m | xargs go test -coverprofile=coverage.out
+          # 3. Format the output so the badge action can read it
+          go tool cover -func=coverage.out -o=coverage.out
+
+      # To generate Go coverage badge, we are providing coverage.out file
+      - name: Generate Go Coverage Badge
+        uses: tj-actions/coverage-badge-go@v3
+        with:
+          filename: calculator-backend/coverage.out
+
+      # This step takes the modified README and pushes it to our repo
+      - name: Commit & Push Badge to README
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update go test coverage badge"
+          file_pattern: README.md
