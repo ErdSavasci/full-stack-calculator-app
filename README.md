@@ -14,5 +14,7 @@ Tech Stack:
 1. ReactJS (TS & Vite)
 2. GoLang (Multi-module & Workspace)
 
+Note: JetBrains GoLand is used as an IDE.
+
 ### Screenshot
 ![Screenshot](extras/screenshot.png)
