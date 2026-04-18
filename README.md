@@ -1,6 +1,7 @@
 ## Full-Stack Calculator App
 
 ![Coverage](https://img.shields.io/badge/Coverage-63.4%25-yellow)
+[![Tests](https://img.shields.io/github/actions/workflow/status/ErdSavasci/full-stack-calculator-app/coverage.yml?label=Tests)](https://github.com/ErdSavasci/full-stack-calculator-app/actions/workflows/coverage.yml)
 
 Note: This project is an assessment built for Sezzle.
 
