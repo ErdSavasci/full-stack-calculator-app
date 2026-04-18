@@ -1,6 +1,6 @@
 ## Full-Stack Calculator App
 
-![Coverage](https://img.shields.io/badge/Coverage-0%25-red)
+![Coverage](https://img.shields.io/badge/Coverage-63.4%25-yellow)
 
 Note: This project is an assessment built for Sezzle.
 
