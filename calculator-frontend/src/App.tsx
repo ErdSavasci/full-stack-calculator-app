@@ -47,7 +47,8 @@ function App() {
 
   const handleNumber = (num: string) => {
     if (waitingForNewValue) {
-      setDisplayValue(num);
+      // To preserve the minus sign
+      setDisplayValue(prev => prev === '-' ? '-' + num : num);
       setWaitingForNewValue(false);
     } else {
       const cleanLength = displayValue.replace(/[-.]/g, '').length;
